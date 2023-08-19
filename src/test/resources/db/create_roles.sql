@@ -1,0 +1,2 @@
+INSERT INTO roles (id, name) VALUES (1, 'ROLE_CANDIDATE_USER');
+INSERT INTO roles (id, name) VALUES (2, 'ROLE_EMPLOYER_USER');
