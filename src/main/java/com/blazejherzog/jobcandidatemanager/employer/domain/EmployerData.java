@@ -1,4 +1,12 @@
 package com.blazejherzog.jobcandidatemanager.employer.domain;
 
-public class EmployerData {
+import com.blazejherzog.jobcandidatemanager.shared.domain.AdditionalData;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
+
+@Data
+@SuperBuilder
+public class EmployerData extends AdditionalData {
+
+    private boolean isHiring;
 }

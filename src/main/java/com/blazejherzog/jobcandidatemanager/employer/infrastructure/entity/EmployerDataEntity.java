@@ -1,6 +1,19 @@
 package com.blazejherzog.jobcandidatemanager.employer.infrastructure.entity;
 
-import com.blazejherzog.jobcandidatemanager.shared.domain.AdditionalData;
+import jakarta.persistence.*;
 
-public class EmployerDataEntity extends AdditionalData {
+@Entity
+public class EmployerDataEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name = "id", nullable = false)
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 }
