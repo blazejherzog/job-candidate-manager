@@ -7,7 +7,7 @@ import lombok.Data;
 
 @Data
 @Builder
-public class EmployerData {
+public class EmployerAdditionalDataCommand{
 
     private Long userId;
     private String firstName;

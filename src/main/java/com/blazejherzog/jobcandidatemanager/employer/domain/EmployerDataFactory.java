@@ -2,12 +2,10 @@ package com.blazejherzog.jobcandidatemanager.employer.domain;
 
 import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.User;
 import com.blazejherzog.jobcandidatemanager.employer.infrastructure.repository.EmployerDataRepository;
-import com.blazejherzog.jobcandidatemanager.shared.domain.AdditionalDataFactory;
-import com.blazejherzog.jobcandidatemanager.shared.api.AdditionalDataRequest;
 import org.springframework.stereotype.Component;
 
 @Component
-public class EmployerDataFactory implements AdditionalDataFactory {
+public class EmployerDataFactory {
 
     private final EmployerDataRepository repository;
 
@@ -15,8 +13,8 @@ public class EmployerDataFactory implements AdditionalDataFactory {
         this.repository = repository;
     }
 
-    @Override
-    public EmployerData createAdditionalData(User user, AdditionalDataRequest request) {
-        return null;
+    public EmployerData createAdditionalData(User user, EmployerAdditionalDataCommand command) {
+        return EmployerData.builder()
+                .build();
     }
 }

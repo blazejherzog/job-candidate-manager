@@ -1,4 +1,4 @@
-package com.blazejherzog.jobcandidatemanager.shared.api;
+package com.blazejherzog.jobcandidatemanager.shared.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

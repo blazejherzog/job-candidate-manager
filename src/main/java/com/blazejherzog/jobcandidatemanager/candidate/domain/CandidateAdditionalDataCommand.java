@@ -1,15 +1,16 @@
-package com.blazejherzog.jobcandidatemanager.candidate.domain.model;
+package com.blazejherzog.jobcandidatemanager.candidate.domain;
 
+import com.blazejherzog.jobcandidatemanager.candidate.domain.model.LanguageProficiency;
 import com.blazejherzog.jobcandidatemanager.shared.domain.Address;
 import com.blazejherzog.jobcandidatemanager.shared.domain.Company;
-import lombok.*;
+import lombok.Builder;
+import lombok.Data;
 
 import java.util.List;
 
-@Getter
+@Data
 @Builder
-@AllArgsConstructor
-public class CandidateData {
+public class CandidateAdditionalDataCommand{
 
     private Long userId;
     private String firstName;
@@ -24,6 +25,5 @@ public class CandidateData {
     private List<LanguageProficiency> languageProficiencies;
     private String personalSummary;
     private boolean hasCvUploaded;
-
 
 }

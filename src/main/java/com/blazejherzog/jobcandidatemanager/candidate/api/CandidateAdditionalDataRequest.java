@@ -1,16 +1,19 @@
-package com.blazejherzog.jobcandidatemanager.shared.api;
+package com.blazejherzog.jobcandidatemanager.candidate.api;
 
 import com.blazejherzog.jobcandidatemanager.candidate.domain.model.LanguageProficiency;
+import com.blazejherzog.jobcandidatemanager.shared.domain.Address;
+import com.blazejherzog.jobcandidatemanager.shared.domain.Company;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
-import lombok.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
 @Getter
 @Setter
-public class AdditionalDataRequest {
+public class CandidateAdditionalDataRequest {
 
     @NotBlank
     @Size(min = 3, max = 20)
@@ -33,7 +36,7 @@ public class AdditionalDataRequest {
 
     private String currentIndustry;
 
-    private double currentOccupationExperience;
+    private double currentOccupationYearsExperience;
 
     private List<String> skills;
 
@@ -42,5 +45,4 @@ public class AdditionalDataRequest {
     private String personalSummary;
 
     private boolean hasCvUploaded;
-
 }
