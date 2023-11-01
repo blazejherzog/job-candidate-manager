@@ -3,9 +3,10 @@ package com.blazejherzog.jobcandidatemanager.candidate.domain;
 import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.User;
 import com.blazejherzog.jobcandidatemanager.candidate.domain.model.CandidateData;
 import com.blazejherzog.jobcandidatemanager.candidate.infrastructure.repository.CandidateDataRepository;
+import org.springframework.stereotype.Component;
 
+@Component
 public class CandidateDataFactory {
-
 
     private final CandidateDataRepository repository;
 

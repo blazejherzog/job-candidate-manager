@@ -1,12 +1,12 @@
 package com.blazejherzog.jobcandidatemanager.shared.infrastructure;
 
-import com.blazejherzog.jobcandidatemanager.candidate.domain.model.ProficiencyLevel;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
+@Getter
+@Setter
 public class LanguageProficiencyEntity {
 
     @Id
@@ -17,5 +17,5 @@ public class LanguageProficiencyEntity {
 
     private String language;
 
-    private ProficiencyLevel proficiencyLevel;
+    private String proficiencyLevel;
 }

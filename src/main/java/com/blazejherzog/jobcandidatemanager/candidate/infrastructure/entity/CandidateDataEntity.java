@@ -1,8 +1,8 @@
 package com.blazejherzog.jobcandidatemanager.candidate.infrastructure.entity;
 
-import com.blazejherzog.jobcandidatemanager.candidate.domain.model.LanguageProficiency;
 import com.blazejherzog.jobcandidatemanager.shared.infrastructure.AddressEntity;
 import com.blazejherzog.jobcandidatemanager.shared.infrastructure.CompanyEntity;
+import com.blazejherzog.jobcandidatemanager.shared.infrastructure.LanguageProficiencyEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -43,7 +43,9 @@ public class CandidateDataEntity {
 
     private List<String> skills;
 
-    private List<LanguageProficiency> languageProficiencies;
+    @OneToMany
+    @JoinColumn(name = "language_proficiencies_id")
+    private List<LanguageProficiencyEntity> languageProficiencies;
 
     private String personalSummary;
 
