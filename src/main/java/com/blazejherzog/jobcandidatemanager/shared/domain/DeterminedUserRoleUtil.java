@@ -1,7 +1,7 @@
 package com.blazejherzog.jobcandidatemanager.shared.domain;
 
 import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.RoleName;
-import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.User;
+import com.blazejherzog.jobcandidatemanager.candidate.domain.model.User;
 
 public class DeterminedUserRoleUtil {
 
@@ -21,11 +21,11 @@ public class DeterminedUserRoleUtil {
 
     private static boolean userHasCandidateRole(User user) {
         return user.getRoles().stream()
-                .anyMatch(role -> role.getName().equals(RoleName.ROLE_CANDIDATE_USER));
+                .anyMatch(role -> role.getName().equals(RoleName.ROLE_CANDIDATE_USER.name()));
     }
 
     private static boolean userHasEmployerRole(User user) {
         return user.getRoles().stream()
-                .anyMatch(role -> role.getName().equals(RoleName.ROLE_EMPLOYER_USER));
+                .anyMatch(role -> role.getName().equals(RoleName.ROLE_EMPLOYER_USER.name()));
     }
 }

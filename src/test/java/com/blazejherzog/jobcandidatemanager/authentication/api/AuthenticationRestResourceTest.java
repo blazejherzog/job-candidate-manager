@@ -1,7 +1,7 @@
 package com.blazejherzog.jobcandidatemanager.authentication.api;
 
 import com.blazejherzog.jobcandidatemanager.authentication.domain.UserDetailsImpl;
-import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.User;
+import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.UserEntity;
 import com.blazejherzog.jobcandidatemanager.authentication.jwt.JwtUtils;
 import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.repository.RoleRepository;
 import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.repository.UserRepository;
@@ -81,7 +81,7 @@ public class AuthenticationRestResourceTest {
                 .andExpect(jsonPath("$.message").value("User registered successfully!"));
 
         //then
-        Optional<User> optionalUser = userRepository.findByUsername(USERNAME);
+        Optional<UserEntity> optionalUser = userRepository.findByUsername(USERNAME);
         assertThat(optionalUser).isPresent();
         assertThat(optionalUser).hasValueSatisfying(user -> {
             assertThat(user.getUsername()).isEqualTo(USERNAME);

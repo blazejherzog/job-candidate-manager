@@ -1,17 +1,21 @@
 package com.blazejherzog.jobcandidatemanager.candidate.infrastructure.entity;
 
+import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.UserEntity;
 import com.blazejherzog.jobcandidatemanager.shared.infrastructure.AddressEntity;
 import com.blazejherzog.jobcandidatemanager.shared.infrastructure.CompanyEntity;
 import com.blazejherzog.jobcandidatemanager.shared.infrastructure.LanguageProficiencyEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@Table(name = "CANDIDATE_DATA")
 public class CandidateDataEntity {
 
     @Id
@@ -19,7 +23,9 @@ public class CandidateDataEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private Long userId;
+    @OneToOne
+    @JoinColumn(name = "USER_ID")
+    private UserEntity user;
 
     private String firstName;
 

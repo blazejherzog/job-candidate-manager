@@ -1,13 +1,17 @@
 package com.blazejherzog.jobcandidatemanager.employer.infrastructure.entity;
 
+import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.UserEntity;
 import com.blazejherzog.jobcandidatemanager.shared.infrastructure.AddressEntity;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
+@Builder
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@AllArgsConstructor
+@Table(name = "EMPLOYER_DATA")
 public class EmployerDataEntity {
 
     @Id
@@ -15,7 +19,9 @@ public class EmployerDataEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    private Long userId;
+    @OneToOne
+    @JoinColumn(name = "USER_ID")
+    private UserEntity user;
 
     private String firstName;
 

@@ -1,9 +1,9 @@
 package com.blazejherzog.jobcandidatemanager.authentication.api;
 
 import com.blazejherzog.jobcandidatemanager.authentication.domain.UserDetailsImpl;
-import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.Role;
+import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.RoleEntity;
 import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.RoleName;
-import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.User;
+import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.UserEntity;
 import com.blazejherzog.jobcandidatemanager.authentication.jwt.JwtUtils;
 import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.repository.RoleRepository;
 import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.repository.UserRepository;
@@ -70,7 +70,7 @@ public class AuthenticationRestResource {
         try {
             validateUsernameAndEmailAvailability(request);
 
-            User user = createUserFromRegistrationRequest(request);
+            UserEntity user = createUserFromRegistrationRequest(request);
 
             Set<String> requestRoles = request.getRole();
 
@@ -117,14 +117,14 @@ public class AuthenticationRestResource {
         }
     }
 
-    private User createUserFromRegistrationRequest(RegistrationRequest request) {
-        return new User(request.getUsername(),
+    private UserEntity createUserFromRegistrationRequest(RegistrationRequest request) {
+        return new UserEntity(request.getUsername(),
                 request.getEmail(),
                 passwordEncoder.encode(request.getPassword()));
     }
 
-    private void addRoleToUser(RoleName roleName, User user) {
-        Role role = roleRepository.findByName(roleName)
+    private void addRoleToUser(RoleName roleName, UserEntity user) {
+        RoleEntity role = roleRepository.findByName(roleName)
                 .orElseThrow(() -> new RuntimeException("Error: Role '" + roleName + "' is not found."));
         user.getRoles().add(role);
     }

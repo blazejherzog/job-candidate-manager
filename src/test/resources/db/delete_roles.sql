@@ -1,2 +1,2 @@
-DELETE FROM roles WHERE id = 1;
-DELETE FROM roles WHERE id = 2;
+DELETE FROM role WHERE id = 1;
+DELETE FROM role WHERE id = 2;

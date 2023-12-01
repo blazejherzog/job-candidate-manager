@@ -1,6 +1,6 @@
 package com.blazejherzog.jobcandidatemanager.authentication.domain;
 
-import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.User;
+import com.blazejherzog.jobcandidatemanager.authentication.infrastructure.entity.UserEntity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -28,7 +28,7 @@ public class UserDetailsImpl implements UserDetails {
 
     private Collection<? extends GrantedAuthority> authorities;
 
-    public static UserDetailsImpl build(User user) {
+    public static UserDetailsImpl build(UserEntity user) {
         List<SimpleGrantedAuthority> authorities = user.getRoles().stream()
                 .map(role -> new SimpleGrantedAuthority(role.getName().name()))
                 .collect(Collectors.toList());
