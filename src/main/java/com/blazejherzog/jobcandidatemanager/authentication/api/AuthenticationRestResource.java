@@ -22,7 +22,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
@@ -71,30 +70,26 @@ public class AuthenticationRestResource {
             validateUsernameAndEmailAvailability(request);
 
             UserEntity user = createUserFromRegistrationRequest(request);
+            String role = request.getRole();
 
-            Set<String> requestRoles = request.getRole();
-
-            if (requestRoles == null || requestRoles.isEmpty()) {
+            if (role == null || role.isEmpty()) {
                 return ResponseEntity.badRequest().body("Error: Please select a role. Available roles are 'candidate' or 'employer'.");
-            } else if (requestRoles.size() == 1) {
-                String requestedRole = requestRoles.iterator().next();
-                switch (requestedRole) {
-                    case "candidate":
-                        addRoleToUser(RoleName.ROLE_CANDIDATE_USER, user);
-                        break;
-                    case "employer":
-                        addRoleToUser(RoleName.ROLE_EMPLOYER_USER, user);
-                        break;
-                    default:
-                        return ResponseEntity.badRequest().body("Error: Invalid role selection. Choose either 'candidate' or 'employer'.");
-                }
-            } else {
-                return ResponseEntity.badRequest().body("Error: Invalid role selection. Choose only one role, either 'candidate' or 'employer'.");
+            }
+
+            switch (role) {
+                case "candidate":
+                    addRoleToUser(RoleName.ROLE_CANDIDATE_USER, user);
+                    break;
+                case "employer":
+                    addRoleToUser(RoleName.ROLE_EMPLOYER_USER, user);
+                    break;
+                default:
+                    return ResponseEntity.badRequest().body("Error: Invalid role selection. Choose either 'candidate' or 'employer'.");
             }
 
             userRepository.save(user);
-
             return ResponseEntity.ok(new MessageResponse("User registered successfully!"));
+
         } catch (RuntimeException e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("An error occurred during user registration.");
         }
