@@ -15,8 +15,8 @@ public class CandidateData {
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private Address privateAddress;
-    private Company currentCompany;
+    private String privateAddress;
+    private String currentCompanyName;
     private String currentOccupation;
     private String currentIndustry;
     private double currentOccupationYearsExperience;

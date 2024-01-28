@@ -7,13 +7,13 @@ import lombok.Data;
 
 @Data
 @Builder
-public class EmployerAdditionalDataCommand{
+public class EmployerAdditionalDataCommand {
 
     private Long userId;
     private String firstName;
     private String lastName;
     private String phoneNumber;
-    private Address privateAddress;
-    private Company company;
+    private String privateAddress;
+    private String companyName;
     private boolean isHiring;
 }

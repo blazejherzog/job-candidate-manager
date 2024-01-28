@@ -12,7 +12,7 @@ public class EmployerAdditionalDataMapper {
                 .userId(userId)
                 .firstName(request.getFirstName())
                 .lastName(request.getLastName())
-                .company(request.getCompany())
+                .companyName(request.getCompanyName())
                 .privateAddress(request.getPrivateAddress())
                 .phoneNumber(request.getPhoneNumber())
                 .isHiring(true)

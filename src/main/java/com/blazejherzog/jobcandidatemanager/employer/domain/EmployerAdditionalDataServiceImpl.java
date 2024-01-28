@@ -5,6 +5,7 @@ import com.blazejherzog.jobcandidatemanager.candidate.domain.model.User;
 import com.blazejherzog.jobcandidatemanager.employer.infrastructure.entity.EmployerDataEntity;
 import com.blazejherzog.jobcandidatemanager.employer.infrastructure.repository.EmployerDataRepository;
 import com.blazejherzog.jobcandidatemanager.shared.domain.DeterminedUserRoleUtil;
+import com.blazejherzog.jobcandidatemanager.shared.infrastructure.AddressEntity;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -31,7 +32,19 @@ public class EmployerAdditionalDataServiceImpl implements EmployerAdditionalData
 
     private EmployerDataEntity modelToEntity(EmployerData employerData) {
         return EmployerDataEntity.builder()
-                //TODO
+                .firstName(employerData.getFirstName())
+                .lastName(employerData.getLastName())
+                .phoneNumber(employerData.getPhoneNumber())
+                .privateAddress(createPrivateAddress(employerData))
+                .isHiring(employerData.isHiring())
+                .build();
+    }
+
+    private static AddressEntity createPrivateAddress(EmployerData employerData) {
+        return AddressEntity.builder()
+                .city(employerData.getPrivateAddress().getCity())
+                .streetAndFullNumber(employerData.getPrivateAddress().getStreetAndFullNumber())
+                .postalCode(employerData.getPrivateAddress().getPostalCode())
                 .build();
     }
 }

@@ -26,7 +26,7 @@ public class CandidateDataFactory {
                 .lastName(command.getLastName())
                 .phoneNumber(command.getPhoneNumber())
                 .privateAddress(command.getPrivateAddress())
-                .currentCompany(command.getCurrentCompany())
+                .currentCompanyName(command.getCurrentCompanyName())
                 .currentOccupation(command.getCurrentOccupation())
                 .currentIndustry(command.getCurrentIndustry())
                 .currentOccupationYearsExperience(command.getCurrentOccupationYearsExperience())

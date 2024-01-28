@@ -5,11 +5,13 @@ import com.blazejherzog.jobcandidatemanager.shared.domain.Company;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
+@Builder
 public class EmployerAdditionalDataRequest {
 
     @NotBlank
@@ -25,9 +27,9 @@ public class EmployerAdditionalDataRequest {
     private String phoneNumber;
 
     @NotNull
-    private Address privateAddress;
+    private String privateAddress;
 
-    private Company company;
+    private String companyName;
 
     private boolean isHiring;
 }

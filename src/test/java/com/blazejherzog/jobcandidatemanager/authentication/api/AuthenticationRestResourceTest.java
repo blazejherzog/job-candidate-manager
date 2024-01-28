@@ -71,7 +71,7 @@ public class AuthenticationRestResourceTest {
     @Test
     void shouldRegisterUserSuccessfully() throws Exception {
         //given
-        RegistrationRequest request = registrationRequest(Collections.singleton(CANDIDATE_ROLE));
+        RegistrationRequest request = registrationRequest(CANDIDATE_ROLE);
 
         //when
         mockMvc.perform(post("/api/authentication/register")
@@ -92,7 +92,7 @@ public class AuthenticationRestResourceTest {
     @Test
     void shouldThrowExceptionWhenInvalidRoleSelected() throws Exception {
         //given
-        RegistrationRequest request = registrationRequest(Collections.singleton(INVALID_ROLE));
+        RegistrationRequest request = registrationRequest(INVALID_ROLE);
 
         //when and then
         mockMvc.perform(post("/api/authentication/register")
@@ -162,7 +162,7 @@ public class AuthenticationRestResourceTest {
                 .andExpect(content().json("{\"message\": \"You have been signed out\"}"));
     }
 
-    private static RegistrationRequest registrationRequest(Set<String> role) {
+    private static RegistrationRequest registrationRequest(String role) {
         RegistrationRequest request = new RegistrationRequest();
         request.setUsername(USERNAME);
         request.setEmail(EMAIL);

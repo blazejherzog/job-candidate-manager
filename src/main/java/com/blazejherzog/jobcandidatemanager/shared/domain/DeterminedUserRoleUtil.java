@@ -21,11 +21,11 @@ public class DeterminedUserRoleUtil {
 
     private static boolean userHasCandidateRole(User user) {
         return user.getRoles().stream()
-                .anyMatch(role -> role.getName().equals(RoleName.ROLE_CANDIDATE_USER.name()));
+                .anyMatch(role -> role.getName().equals(RoleName.ROLE_CANDIDATE_USER));
     }
 
     private static boolean userHasEmployerRole(User user) {
         return user.getRoles().stream()
-                .anyMatch(role -> role.getName().equals(RoleName.ROLE_EMPLOYER_USER.name()));
+                .anyMatch(role -> role.getName().equals(RoleName.ROLE_EMPLOYER_USER));
     }
 }

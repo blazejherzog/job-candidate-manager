@@ -38,7 +38,7 @@ public class UserDataServiceImpl implements UserDataService {
     private Set<Role> mapRoles(Set<RoleEntity> roles) {
         return roles.stream()
                 .map(roleEntity -> Role.builder()
-                        .name(roleEntity.getName().name())
+                        .name(roleEntity.getName())
                         .build())
                 .collect(Collectors.toSet());
     }

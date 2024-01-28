@@ -1,8 +1,5 @@
 package com.blazejherzog.jobcandidatemanager.candidate.api;
 
-import com.blazejherzog.jobcandidatemanager.candidate.domain.model.LanguageProficiency;
-import com.blazejherzog.jobcandidatemanager.shared.domain.Address;
-import com.blazejherzog.jobcandidatemanager.shared.domain.Company;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -10,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Map;
 
 @Getter
 @Setter
@@ -27,21 +25,28 @@ public class CandidateAdditionalDataRequest {
     @Size(min = 9, max = 13)
     private String phoneNumber;
 
-    @NotNull
-    private Address privateAddress;
+    @NotBlank
+    private String address;
 
-    private Company currentCompany;
+    @NotBlank
+    private String currentCompanyName;
 
+    @NotBlank
     private String currentOccupation;
 
+    @NotBlank
     private String currentIndustry;
 
+    @NotBlank
     private double currentOccupationYearsExperience;
 
+    @NotNull
     private List<String> skills;
 
-    private List<LanguageProficiency> languageProficiencies;
+    @NotNull
+    private Map<String, String> languageProficiencies;
 
+    @NotBlank
     private String personalSummary;
 
     private boolean hasCvUploaded;
